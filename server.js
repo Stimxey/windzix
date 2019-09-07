@@ -24,7 +24,7 @@ setInterval(() => {
 
 const Discord = require('discord.js'); // Require discord.js
 const bot = new Discord.Client(); // Discord.js Client (Bot)
-const modules = ['misc', 'owner', 'nsfw', 'fun', 'util', 'config']; // This will be the list of the names of all modules (folder) your bot owns
+const modules = ['misc', 'owner', 'mod', 'nsfw', 'fun', 'util', 'config']; // This will be the list of the names of all modules (folder) your bot owns
 const fs = require('fs'); // Require fs to go throw all folder and files
 
 bot.commands = new Discord.Collection(); // Collection for all commands
