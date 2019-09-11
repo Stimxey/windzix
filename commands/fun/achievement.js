@@ -1,11 +1,10 @@
 const Discord = require("discord.js");
-const bot = new Discord.Client();
 
 module.exports.run = async (client, message, args) => {
     try {
        const text = args.join(" ");
-        if (text === null) return message.channel.send("You need to provide text for the achievement");
-            if (text.length > 25) return message.reply('text must be under 25 characters.');
+        if (text === null) return message.channel.send("Debes proporcionar texto para el logro");
+            if (text.length > 25) return message.reply('El texto debe tener menos de 25 caracteres.');
         const superagent = require('superagent')
         const { body } = await superagent
             .get('https://www.minecraftskinstealer.com/achievement/a.php')

@@ -8,12 +8,16 @@ module.exports.run = async (client, message, args) => {
     }
   
     const sayMessage = args.join(" ");
-      message.channel.send(sayMessage);
+      let sembed = new Discord.RichEmbed()
+        .setDescription(sayMessage)
+        .setColor("#36393f");
+      message.delete().catch();
+    message.channel.send(sembed);
 
 }
 
 exports.config = {
-  name: "say", 
+  name: "embed", 
   aliases: [],
   description: "Comando para decir algo."
   };
