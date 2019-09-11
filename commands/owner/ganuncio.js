@@ -36,6 +36,7 @@ function sendAnnounce(bot, message, args, guild) {
   }
 }
 module.exports.run = (bot, message, args) => {
+  if(message.author.id !== process.env.OID) return message.channel.send("Solo el dueño del bot puede utilizar este comando.")
   //return; // SOON
   let announceTest = new discord.RichEmbed()
     .setColor("7289DA")

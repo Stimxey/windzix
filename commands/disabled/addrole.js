@@ -1,12 +1,13 @@
 const Discord = require('discord.js');
-const botconfig = require('../../settings/config.json');
 
 module.exports.run = (client, message, args) => {
-  
+   if(!member.hasPermission('MANAGE_ROLES')) {
+        return message.channel.send("No tienes permiso para ese comando.");
+    }
   let role = message.mentions.roles.first();
   if (!role) return message.channel.send(`You need to mention a role.`);
   let member = message.mentions.members.first();
-  if (!member) return message.channel.send("You need to mention someone.");
+  if (!member) return message.channel.send("Necesitas mencionar a alguien.");
   let roleid = role.id;
   let rolename = role.name;
   
