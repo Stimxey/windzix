@@ -28,11 +28,18 @@ setInterval(() => {
 
 const Discord = require('discord.js'); // Require discord.js
 const bot = new Discord.Client(); // Discord.js Client (Bot)
-const modules = ['misc', 'owner', 'nsfw', 'fun', 'util', 'config', 'music']; // This will be the list of the names of all modules (folder) your bot owns
+const modules = ['misc', 'owner', 'nsfw', 'fun', 'util', 'config', 'music', 'games', 'mod']; // This will be the list of the names of all modules (folder) your bot owns
 const fs = require('fs-extra'); // Require fs to go throw all folder and files
+try {
+    var config = JSON.parse(fs.readFileSync("./settings/guilds.json", "utf8")); //Overwrite prefix (important for changing prefix)
+  } catch(ex){
+    console.log("[ERROR] Configuración sobrescrita");
+    var config = {}
+    fs.writeFile("./settings/guilds.json", JSON.stringify(config), (err) => console.error);
+  }
 const active = new Map();
 
-bot.on('guildCreate', guild => { // If the Bot was added on a server, proceed
+bot.on('guildCreate', (guild) => { // If the Bot was added on a server, proceed
   const chan = bot.channels.get("620782650126237736");
   
   config[guild.id] = {
@@ -52,19 +59,19 @@ bot.on('guildCreate', guild => { // If the Bot was added on a server, proceed
     .setDescription(`**Guild Name**: ${guild.name}\n**Guild ID**: ${guild.id}\n**Members Get**: ${guild.memberCount}`)
   chan.send(liveLEmbed);
   
-});  
+}); 
 
 bot.on('guildDelete', (guild) => { // If the Bot was removed on a server, proceed
-  delete config[guild.id]; // Deletes the Guild ID and Prefix
-  fs.writeFile('./settings/guilds.json', JSON.stringify(config, null, 2), (err) => {
-    if (err) console.log(err)
-  })
-  const chan = bot.channels.get("620782650126237736");
-  let liveLEmbed = new Discord.RichEmbed()
-    .setAuthor(bot.user.username, bot.user.avatarURL)
-    .setTitle(`Stopped Serving A Guild`)
-    .setDescription(`**Guild Name**: ${guild.name}\n**Guild ID**: ${guild.id}\n**Members Lost**: ${guild.memberCount}`)
-  chan.send(liveLEmbed);
+    delete config[guild.id]; // Deletes the Guild ID and Prefix
+    fs.writeFile('./settings/guilds.json', JSON.stringify(config, null, 2), (err) => {
+        if (err) console.log(err)
+    })
+    const chan = bot.channels.get("620782650126237736");
+    let liveLEmbed = new Discord.RichEmbed()
+        .setAuthor(bot.user.username, bot.user.avatarURL)
+        .setTitle(`Stopped Serving A Guild`)
+        .setDescription(`**Guild Name**: ${guild.name}\n**Guild ID**: ${guild.id}\n**Members Lost**: ${guild.memberCount}`)
+    chan.send(liveLEmbed);
 });
 
 
@@ -179,8 +186,7 @@ bot.aliases = new Discord.Collection(); // Collection for all aliases of every c
 
 bot.on("message", async message => {
     if(message.author.bot || message.channel.type === "dm") return;
-    let prefixes = require('./settings/guilds.json')
-    let prefix = prefixes[message.guild.id].prefix;
+    let prefix = config[message.guild.id].prefix;
     let messageArray = message.content.split(" ")
     let cmd = messageArray[0];
     let args = messageArray.slice(1);     

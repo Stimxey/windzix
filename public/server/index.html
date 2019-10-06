@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="description" content="Windzix - Solo un bot de discord." />
+  <meta name="keywords" content="wind, Windzix, windzix, bot, discord, discord bot, codezix" />
+  <meta name="author" content="Codezix" />
+  <link rel="shortcut icon" href="https://cdn.glitch.com/ee6a34a8-8875-4a55-bffd-81d673c3e814%2Fwz.png?v=1567970388608">
+
+  <title>expoBot</title>
+  <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:400,300,700" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+  <!-- CSS  -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+  <!-- import the webpage's stylesheet -->
+  <link rel="stylesheet" href="/dashboard/css/styleDark.css">
+  <!-- Compiled and minified CSS -->
+  <link rel="stylesheet" href="/dashboard/css/materialize.css">
+  <link rel="stylesheet" href="/dashboard/css/animate.css" />
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="/dashboard/js/lwd.js"></script>
+  <script src="/dashboard/js/server.js"></script>
+  <script src="/dashboard/js/materialize.js"></script>
+  <script src="/dashboard/js/dashboard.js"></script>
+  <script src="/dashboard/js/particles.js"></script>
+  <script src="/dashboard/js/prtDark.js"></script>
+</head>
+
+<body>
+
+  <div class="t animated">
+
+    <div class="full in animated fadeIn" id="loading" style="margin: 0; padding: 0; animation-duration: 0.5s !important;">
+      <div class="header-wrapper">
+        <div class="txt" style="animation-duration: 0.5s !important;">
+          <div class="preloader-wrapper big active center">
+            <div class="spinner-layer spinner-th">
+              <div class="circle-clipper left">
+                <div class="circle"></div>
+              </div>
+              <div class="gap-patch">
+                <div class="circle"></div>
+              </div>
+              <div class="circle-clipper right">
+                <div class="circle"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="navbar-fixed">
+      <nav class="z-depth-3" role="navigation">
+        <div class="nav-wrapper container">
+          <!-- ICONS -->
+          <a href="/" class="left valign-wrapper hide-on-med-and-down animated fadeIn" style="height: 100%;">
+            <img class="ico" style="height: 80%" src="https://cdn.glitch.com/ee6a34a8-8875-4a55-bffd-81d673c3e814%2Fwz.png?v=1567970388608">
+          </a>
+          <a href="/" class="right hide-on-large-only valign-wrapper animated fadeIn" style="height: 100%;">
+            <img class="ico" style="height: 80%" src="https://cdn.glitch.com/ee6a34a8-8875-4a55-bffd-81d673c3e814%2Fwz.png?v=1567970388608">
+          </a>
+
+          <ul class="right">
+            <li>
+              <a class="in dropdown-button right hide-on-med-and-down valign-wrapper animated fadeIn" style="height: 64px;" data-activates="pages">
+                <img style="height: 52px; width: 52px; border-style: solid; border-width: 2px !important; border-color: #222 !important;" class="circle" id="userpfp">
+                <p style="margin-left: 10px;" id="name"></p>
+                <i class="material-icons right">arrow_drop_down</i>
+              </a>
+            </li>
+          </ul>
+
+          <ul class="left">
+            <li>
+              <a class="in dropdown-button right hide-on-large-only valign-wrapper animated fadeIn" style="height: 64px;" data-activates="pages">
+                <img style="height: 52px; width: 52px; border-style: solid; border-width: 2px !important; border-color: #222 !important;" class="circle" id="userpfpMobile">
+                <p style="margin-left: 10px;" id="nameMobile"></p>
+                <i class="material-icons right">arrow_drop_down</i>
+              </a>
+            </li>
+          </ul>
+          
+          <ul id="pages" class="z-depth-3 dropdown-content">
+            <li><a href="/" class="fY waves-effect" style="box-shadow: 0px 0px 0 -1px #fff inset;">Servers</a></li>
+            <li><a href="#card" class="fY waves-effect" style="box-shadow: 0px 0px 0 -1px #fff inset;">Rank card</a></li>
+            <li class="divider" tabindex="-1"></li>
+            <li><a class="center waves-effect" onclick="logout();"><b>LOGOUT</b></a></li>
+          </ul>
+          
+        </div>
+      </nav>
+    </div>
+    
+    <!-- particles.js container -->
+    <div id="particles-js" class="animated fadeIn out">
+    </div>
+
+    <div class="out animated fadeIn full transparent" style="background: transparent !important; margin-top: -64px;">
+      <div class="header-wrapper">
+        <div class="txt">
+          <a class="out waves-effect waves-light btn-flat white-text center" onclick="login();" style="transform: scale(1.25); border-style: solid; border-width: 2px; border-radius: 5px; border-color: black; display: none;">LOGIN</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="container in animated">
+      <div class="row">
+
+        <div class="icon" style="position: relative !important;top: 48px;bottom: auto;left: 50%;margin-right: -50%;transform: translate(-50%, -50%);border-radius: 5px;"></div>
+        <h3 class="name center"></h3>
+        
+        <div class="col s6">
+          <p class="flow-text right">Prefix</p>
+        </div>
+        <div class="col s6">
+          <p class="flow-text left prefix" style="font-weight: 900;">#</p>
+        </div>
+        
+        <div class="col s6">
+          <p class="flow-text right">Delete</p>
+        </div>   
+        <div class="col s6">
+          <p class="flow-text left"><b class="delete">true</b>, after <b class="deleteTime">10000</b>ms</p>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</body>
+
+</html>

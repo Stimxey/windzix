@@ -1,1 +1,29 @@
-{"598883701803188234":{"prefix":"#","delete":"true","deleteTime":"10000","volume":"100","maxVolume":"200","djonly":"false","djroles":[]},"570008353317584898":{"prefix":"#","delete":"true","deleteTime":"10000","volume":"100","maxVolume":"200","djonly":"false","djroles":[]},"476927114164174858":{"prefix":"#","delete":"true","deleteTime":10000,"volume":100,"maxVolume":200,"djonly":false,"djroles":[]}}
+{
+  "598883701803188234": {
+    "prefix": "#",
+    "delete": "true",
+    "deleteTime": "10000",
+    "volume": "100",
+    "maxVolume": "200",
+    "djonly": "false",
+    "djroles": []
+  },
+  "608079947466014720": {
+    "prefix": "#",
+    "delete": "true",
+    "deleteTime": 10000,
+    "volume": 100,
+    "maxVolume": 200,
+    "djonly": false,
+    "djroles": []
+  },
+  "570008353317584898": {
+    "prefix": "#",
+    "delete": "true",
+    "deleteTime": 10000,
+    "volume": 100,
+    "maxVolume": 200,
+    "djonly": false,
+    "djroles": []
+  }
+}

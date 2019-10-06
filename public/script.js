@@ -8,7 +8,7 @@ $(document).ready(function() {
     licenseKey: "OPEN-SOURCE-GPLV3-LICENSE",
     navigation: true,
     loopBottom: true,
-    sectionsColor: ['transparent', '#fff', '#111']
+    sectionsColor: ['transparent', 'transparent']
   });
 
 });
